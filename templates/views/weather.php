@@ -2,7 +2,7 @@
 /**
  * @var $weatherByCity array
  */
-dump($weatherByCity);
+
 
 ?>
 

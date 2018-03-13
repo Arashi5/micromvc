@@ -11,6 +11,7 @@ class Weather
     public function __construct($apiKey)
     {
         $this->apiKey = $apiKey;
+        throw new Exception('Ключ апи не коректный');
 
     }
 

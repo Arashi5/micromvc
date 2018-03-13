@@ -37,8 +37,12 @@ class Controller
 
     public function weatherAction() {
         $city = 'Saint Petersburg,ru';
-        $weather = new Weather('012e34537b328a78762f56bb13b7ac8c');
-
+        try {
+            $weather = new Weather('012e34537b328a78762f56bb13b7ac8c');
+        } catch (Exception $e) {
+            $error = 'Errore!';
+            dump($e); die();
+        }
         $this->render('weather.php', 'Погода', [
             'weatherByCity'=> $weather->getWeatherByCity($city),
         ]);
