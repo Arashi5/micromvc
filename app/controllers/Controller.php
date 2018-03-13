@@ -18,8 +18,8 @@ class Controller
 
     public function regAction() {
         $param = $_POST;
+        $user = new User();
         if (isset($param['is_agree'])) {
-            $user = new User();
             $user->setFirstname($param['firstname']);
             $user->setLastname($param['lastname']);
             $user->setGrowth($param['growth']);
