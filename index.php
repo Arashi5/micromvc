@@ -12,7 +12,7 @@ if (isset($query['act'])) {
     $method = $query['act'] . 'Action';
 }
 
-$controller = new Controller();
+$controller = new MainController();
 if($method && method_exists($controller, $method)) {
     // Метод есть точно
     $controller->{$method}();

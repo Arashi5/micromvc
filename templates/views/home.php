@@ -15,6 +15,8 @@
 </div>
 
 
+<script src="templates/assets/js/script.js?<?= filemtime('templates/assets/js/script.js')?>"/>
+
 
 
 
