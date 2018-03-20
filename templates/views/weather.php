@@ -4,8 +4,6 @@
  * @var $weather2 array
  */
 
-dump($weather1);
-//dump($weather2);
 ?>
 
 <div class="container">

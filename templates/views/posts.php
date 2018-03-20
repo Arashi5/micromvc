@@ -4,6 +4,8 @@
  */
 ?>
 
+
+
 <style>
     body {
         background-color: #f4f4f4;
@@ -54,7 +56,7 @@
             <div class="blog-content bg-white">
                 <hr>
                 <p>
-                    <span class="like"><i class="<?= $post['like_count'] ? 'fas' : 'far' ?> fa-heart"></i> Нравится <span class="count"><?= $post['like_count'] ?></span></span>
+                    <span class="like"><i class="far fa-heart"></i> Нравится <span class="count"><?= $post['like_count'] ?></span></span>
                     <span class="comments"><i class="far fa-comment"></i> Комментариев <span class="count"><?= $post['comment_count'] ?></strong></span>
                     <span class="pull-right text-gray"><?= $post['created_at'] ?></span>
                 </p>

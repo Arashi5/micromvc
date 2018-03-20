@@ -15,4 +15,13 @@ class PostsController extends Controller
             'posts' => $posts,
         ]);
     }
+    public function likeAction() {
+        $_GET['post_id'];
+
+        header('Content-Type: application/json');
+        echo json_encode([
+            'like_count' => rand(10, 50),
+            'is_like' => (bool)rand(0,1),
+        ]);
+    }
 }
