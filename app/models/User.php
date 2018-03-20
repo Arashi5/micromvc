@@ -1,13 +1,12 @@
 <?php
 
+namespace app\models;
+
 class User
 {
-
     private $firstname;
 
     private $lastname;
-
-    private $stackLearn = [];
 
     private $password;
 
@@ -17,22 +16,28 @@ class User
 
     private $growth;
 
-    private $listFruit;
+    private $stackLearn = [];
 
-    public static $salt = 'ara$%4f2423*$^d21&23';
+    private $listFruits;
 
-//    public static function getSalt()
-//    {
-//        return self::$salt;
-//    }
-    public static function getSalt()
-    {
+    public static $salt = '&&%F238gG%@#';
+
+    public static function getSalt() {
         return self::$salt;
     }
+
 
     public function setFirstname($firstname)
     {
         $this->firstname = $firstname;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getFirstname()
+    {
+        return $this->firstname;
     }
 
     public function setLastname($lastname)
@@ -40,20 +45,24 @@ class User
         $this->lastname = $lastname;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getLastname()
+    {
+        return $this->lastname;
+    }
+
     public function getFullName()
     {
-        return $this ->firstname . ' ' . $this->lastname;
+        return $this->firstname . ' ' . $this->lastname;
     }
+
     public function isValidFullName()
     {
         return
-        strlen($this->firstname) >= 3 &&
-        strlen($this->lastname) >=3;
-    }
-
-    public function setStackLearn($stackLearn)
-    {
-        $this->stackLearn = $stackLearn;
+            strlen($this->firstname) >= 3 &&
+            strlen($this->lastname) >= 3;
     }
 
     public function setPassword($password)
@@ -61,64 +70,98 @@ class User
         $this->password = $password;
     }
 
-    public function setSex($sex)
-    {
-        $this->sex = $sex;
-    }
-
-    public function setAge($age)
-    {
-        $this->age = $age;
-    }
-
-    public function setGrowth($growth)
-    {
-        $this->growth = $growth;
-    }
-
-    public function setListFruit($listFruit)
-    {
-        $this->listFruit = $listFruit;
-    }
-
-    public function getStackLearn()
-    {
-        return $this->stackLearn;
-    }
-
-    public function getFirstname()
-    {
-        return $this->firstname;
-    }
-
-    public function getAge()
-    {
-        return $this->age;
-    }
-
-    public function getGrowth()
-    {
-        return $this->growth;
-    }
-
+    /**
+     * @return mixed
+     */
     public function getPassword()
     {
         return $this->password;
     }
 
-    public function getLastname()
+    /**
+     * @param integer $age
+     */
+    public function setAge($age)
     {
-        return $this->lastname;
+        $this->age = $age;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getAge()
+    {
+        return $this->age;
+    }
+
+    /**
+     * @param mixed $growth
+     */
+    public function setGrowth($growth)
+    {
+        $this->growth = $growth;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getGrowth()
+    {
+        return $this->growth;
+    }
+
+    /**
+     * @param mixed $listFruits
+     */
+    public function setListFruits($listFruits)
+    {
+        $this->listFruits = $listFruits;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getListFruits()
+    {
+        return $this->listFruits;
+    }
+
+    /**
+     * @param mixed $sex
+     */
+    public function setSex($sex)
+    {
+        $this->sex = $sex;
+    }
+
+    /**
+     * @return mixed
+     */
     public function getSex()
     {
         return $this->sex;
     }
-//    public function __construct()
-//    {
-//        var_dump(1);
-//        die();
-//    }
 
+    public function setStackLearn($stackLearn)
+    {
+        $this->stackLearn = $stackLearn;
+    }
+
+    /**
+     * @return array
+     */
+    public function getStackLearn()
+    {
+        return $this->stackLearn;
+    }
+
+    public function validate() {
+        if (!$this->getFirstname()) {
+            throw new \Exception('Имя не указано');
+        } elseif (!$this->getLastname()) {
+            throw new \Exception('Фамилия не указана');
+        }
+
+        return true;
+    }
 }
