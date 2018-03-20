@@ -1,16 +1,15 @@
 <?php
 
 namespace app\config;
-
 class DB
 {
     public static $connections = [
         'default' => [
             'driver' => 'mysql',
-            'db' => 'omasn',
+            'db' => 'php2',
             'host' => 'localhost',
-            'username' => 'omasn',
-            'password' => 'admin1q2',
+            'username' => 'root',
+            'password' => 'root',
             'charset' => 'utf8',
             'errors' => true,
         ],
